@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecipesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('recipe');
-});
+
+
+Route::get('/', [RecipesController::class,'home'])->name('homepage');
+
+Route::get('/about', [RecipesController::class,'about'] );
+
+
+Route::get('/contact', [RecipesController::class,'contact']);
+
+
+
