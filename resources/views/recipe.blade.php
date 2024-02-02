@@ -33,18 +33,23 @@
             <nav :class="isOpen ? '' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-4">
                 <div class="flex flex-col sm:flex-row">
                     <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Home</a>
-                    <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Contact</a>
+                    <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="/contact">Contact</a>
                     <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="/about">About</a>
                 </div>
             </nav>
-            <div class="relative mt-6 max-w-lg mx-auto">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
-                <svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
+            <div class="flex justify-between mt-6 max-w-lg mx-auto">
+                <div>
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                        <svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                        <input class="w-full border rounded-md pl-10 pr-4 py-2 focus:border-blue-500 focus:outline-none focus:shadow-outline" type="text" placeholder="Search">
+                </div>
 
-                <input class="w-full border rounded-md pl-10 pr-4 py-2 focus:border-blue-500 focus:outline-none focus:shadow-outline" type="text" placeholder="Search">
+
+                <a href="/posts" class="inline-block bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Ajouter des recettes</a>
+
             </div>
         </div>
     </header>
@@ -110,6 +115,7 @@
             </div>
             <span class="text-gray-600">20$</span>
         </div>
+
         <div class="mt-8">
             <form class="flex items-center justify-center">
                 <input class="form-input w-48" type="text" placeholder="Add promocode">
@@ -124,7 +130,7 @@
         </a>
     </div>
     <main class="my-8">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6">button
             <div class="h-64 rounded-md overflow-hidden bg-cover bg-center" style="background-image: url('https://th.bing.com/th/id/R.c4551cf93e30cad7319ca9f4dc3b93fa?rik=rtnXZ%2fzPIyaN8Q&pid=ImgRaw&r=0')">
                 <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                     <div class="px-10 max-w-xl">
@@ -138,19 +144,25 @@
                 </div>
             </div>
             <div class="md:flex mt-8 md:-mx-4">
+
+                @foreach ($recipes  as $recipe)
+
                 <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2" style="background-image: url('https://th.bing.com/th/id/R.3e6d75f056aa9abf16f3a6c1c01ea877?rik=%2brXQcz66g83gbw&pid=ImgRaw&r=0')">
                     <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                         <div class="px-10 max-w-xl">
-                            <h2 class="text-2xl text-white font-semibold">Couscous</h2>
-                            <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                            <h2 class="text-2xl text-white font-semibold">{{$recipe['title']}}</h2>
+                            <p class="mt-2 text-gray-400"> {{$recipe['Desc']}}</p>
                             <button class="flex items-center mt-4 text-white text-sm uppercase font-medium rounded hover:underline focus:outline-none">
                                
                                 <!-- <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg> -->
                             </button>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2" style="background-image: url('https://th.bing.com/th/id/OIP.kM1NdR7lL1rnguWOFzia9AHaEK?w=286&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7')">
+                @endforeach
+
+                {{-- <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2" style="background-image: url('https://th.bing.com/th/id/OIP.kM1NdR7lL1rnguWOFzia9AHaEK?w=286&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7')">
                     <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                         <div class="px-10 max-w-xl">
                             <h2 class="text-2xl text-white font-semibold">Rfissa</h2>
@@ -161,7 +173,10 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
-            <div class="mt-16">
+           <div>
+                
+
+           </div>
                 

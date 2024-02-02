@@ -11,7 +11,7 @@
                             <h2 class="section-heading">A <span class="theme-accent-color">Warm</span> Welcome</h2>
                             <hr class="thin-hr">
                             <h3 class="section-subheading secondary-font">Were very happy to see you.</h3>
-                            <a href="{{ route('homepage') }}">return page home</a>
+                            <!-- <a href="{{ route('homepage') }}">return page home</a> -->
                         </div>
                     </div>
                 </div>

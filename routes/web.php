@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Recipe;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipesController;
 
@@ -14,14 +14,26 @@ use App\Http\Controllers\RecipesController;
 |
 */
 
+// Route::get('/recipe' , function(){
+//     $recipes = Recipe::all();
+//     return view('recipe' , ['recipes' => $recipes]);
+// });
 
+Route::get('/posts' , function(){
+    return view('posts');
+});
 
 Route::get('/', [RecipesController::class,'home'])->name('homepage');
 
 Route::get('/about', [RecipesController::class,'about'] );
 
 
+
 Route::get('/contact', [RecipesController::class,'contact']);
+
+Route::post('/create_post', [RecipesController::class, 'createPost']);
+
+Route::get('/', [RecipesController::class, 'recipe']);
 
 
 
